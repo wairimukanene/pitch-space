@@ -101,6 +101,45 @@ def new_pitch():
         return redirect(url_for('main.categories'))
     return render_template('add_pitch.html',form=form)
 
+
+@main.route('/comment/new/<int:pitch_id>', methods = ['GET','POST'])
+
+def new_comment(pitch_id):
+    form = CommentForm()
+    pitch=Pitch.query.get(pitch_id)
+    if form.validate_on_submit():
+        description = form.description.data
+
+        new_comment = Comment(description = description, user_id = current_user._get_current_object().id, pitch_id = pitch_id)
+        db.session.add(new_comment)
+        db.session.commit()
+
+
+        return redirect(url_for('.new_comment', pitch_id= pitch_id))
+    
+    
+    all_comments = Comment.query.filter_by(pitch_id = pitch_id).all()
+    return render_template('add_comment.html', form = form, comment = all_comments, pitch = pitch )
+
+
+@main.route('/pitch/upvote/<int:pitch_id>/upvote', methods = ['GET', 'POST'])
+
+def upvote(pitch_id):
+    pitch = Pitch.query.get(pitch_id)
+    user = current_user
+    pitch_upvotes = Upvote.query.filter_by(pitch_id= pitch_id)
+    
+    if Upvote.query.filter(Upvote.user_id==user.id,Upvote.pitch_id==pitch_id).first():
+        return  redirect(url_for('main.categories'))
+
+
+    new_upvote = Upvote(pitch_id=pitch_id, user = current_user)
+    new_upvote.save_upvotes()
+    return redirect(url_for('main.categories'))
+
+
+
+
         
         
         
