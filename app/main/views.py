@@ -137,6 +137,20 @@ def upvote(pitch_id):
     new_upvote.save_upvotes()
     return redirect(url_for('main.categories'))
 
+@main.route('/pitch/downvote/<int:pitch_id>/downvote', methods = ['GET', 'POST'])
+def downvote(pitch_id):
+    pitch = Pitch.query.get(pitch_id)
+    user = current_user
+    pitch_downvotes = Downvote.query.filter_by(pitch_id = pitch_id)
+    
+    if Downvote.query.filter(Downvote.user_id==user.id,Downvote.pitch_id==pitch_id).first():
+        return  redirect(url_for('main.categories'))
+
+
+    new_downvote = Downvote(pitch_id=pitch_id, user = current_user)
+    new_downvote.save_downvotes()
+    return redirect(url_for('main.categories'))
+
 
 
 
