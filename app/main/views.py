@@ -68,6 +68,19 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
+
+@main.route('/categories')
+def categories():
+
+
+    title = 'Pitches | Categories'
+    pitch = Pitch.query.filter_by().first()
+    twitter = Pitch.query.filter_by(category="twitter")
+    elevator = Pitch.query.filter_by(category = "elevator")
+    competition = Pitch.query.filter_by(category = "competition")
+    investor = Pitch.query.filter_by(category = "investor")
+    upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
+
         
         
 
