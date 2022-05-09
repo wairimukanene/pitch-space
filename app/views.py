@@ -13,3 +13,11 @@ def index():
     title = 'Pitch Space'
     
     return render_template('index.html', title = title)
+
+
+@app.route('/loggedin')
+def loggedin():
+
+    title = 'Pitch Space'
+
+    return render_template('loggedin.html',title =title)
