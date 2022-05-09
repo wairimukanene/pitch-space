@@ -80,6 +80,31 @@ def categories():
     competition = Pitch.query.filter_by(category = "competition")
     investor = Pitch.query.filter_by(category = "investor")
     upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
+    return render_template('categories.html',title =title, pitch = pitch, twitter=twitter, elevator= elevator, competition = competition, investor = investor, upvotes=upvotes )
+
+@main.route('/pitches/new/', methods = ['GET','POST'])
+
+def new_pitch():
+    form = AddPitch()
+    my_upvotes = Upvote.query.filter_by(pitch_id = Pitch.id)
+    if form.validate_on_submit():
+        pitcher = form.pitcher.data
+        description = form.description.data
+        title = form.title.data
+        owner_id = current_user
+        category = form.category.data
+        
+        new_pitch = Pitch(owner_id =current_user._get_current_object().id, title = title,description=description,category=category, pitcher = pitcher)
+        db.session.add(new_pitch)
+        db.session.commit()
+         
+        return redirect(url_for('main.categories'))
+    return render_template('add_pitch.html',form=form)
+
+        
+        
+        
+
 
         
         
