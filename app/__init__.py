@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
+from flask_script._compat import text_type
 from flask_sqlalchemy import SQLAlchemy
 
 
