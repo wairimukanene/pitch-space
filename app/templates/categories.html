@@ -1,4 +1,4 @@
-{% extends 'bootstrap/base.html' %}
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
 {% block navbar %}
@@ -17,28 +17,28 @@
     
   
 
-  <h3 class="text-center" style="font-weight: bolder;"> TWITTER PITCHES</h3>
+  <h3 class="text-center" style="font-weight: bolder;"> FASHION PITCHES</h3>
   <hr style="width: 50%;">
         <div>
-            {{ macro.display(twitter) }}
+            {{ macro.display(fashion) }}
         </div>
 
-  <h3 class="text-center" style="font-weight: bolder;"> ElEVATOR PITCHES</h3>
+  <h3 class="text-center" style="font-weight: bolder;"> MUSIC PITCHES</h3>
   <hr style="width: 50%;">
         <div>
-            {{ macro.display(elevator) }}
+            {{ macro.display(music) }}
         </div>   
         
-  <h3 class="text-center" style="font-weight: bolder;"> COMPETITION PITCHES</h3>
+  <h3 class="text-center" style="font-weight: bolder;"> SPORTS PITCHES</h3>
   <hr style="width: 50%;">
         <div>
-            {{ macro.display(competition) }}
+            {{ macro.display(sports) }}
         </div>
         
-   <h3 class="text-center" style="font-weight: bolder;"> INVESTOR PITCHES</h3>
+   <h3 class="text-center" style="font-weight: bolder;"> DESIGN PITCHES</h3>
    <hr style="width: 50%;">
         <div>
-            {{ macro.display(investor) }}
+            {{ macro.display(design) }}
         </div>     
         
         {% endblock %}       

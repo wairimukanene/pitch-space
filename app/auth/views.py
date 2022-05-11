@@ -19,7 +19,7 @@ def login():
 
         flash('Invalid username or Password')
 
-    title = "SignIn | PitchDeck"
+    title = "SignIn | PitchSpace"
     return render_template('auth/login.html',login_form = login_form,title=title)
 
 @auth.route('/register',methods = ["GET","POST"])

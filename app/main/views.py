@@ -1,5 +1,5 @@
 from flask import render_template,request,redirect,url_for,abort,flash
-from ..import main
+from . import main
 from flask_login import login_required,current_user
 from ..models import User,Pitch,Comment,Upvote,Downvote
 from .forms import UpdateProfile,AddPitch,CommentForm,UpvoteForm,Downvote
@@ -75,12 +75,13 @@ def categories():
 
     title = 'Pitches | Categories'
     pitch = Pitch.query.filter_by().first()
-    twitter = Pitch.query.filter_by(category="twitter")
-    elevator = Pitch.query.filter_by(category = "elevator")
-    competition = Pitch.query.filter_by(category = "competition")
-    investor = Pitch.query.filter_by(category = "investor")
+    fashion = Pitch.query.filter_by(category="fashion")
+    music = Pitch.query.filter_by(category = "music")
+    sports = Pitch.query.filter_by(category = "sports")
+    design = Pitch.query.filter_by(category = "design")
     upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
-    return render_template('categories.html',title =title, pitch = pitch, twitter=twitter, elevator= elevator, competition = competition, investor = investor, upvotes=upvotes )
+    downvotes = Downvote.get_all_downvotes(pitch_id=pitch.id)
+    return render_template('categories.html',title =title, pitch = pitch, fashion=fashion, music=music, sports=sports, design=design, upvotes=upvotes,downvotes=downvotes )
 
 @main.route('/pitches/new/', methods = ['GET','POST'])
 
