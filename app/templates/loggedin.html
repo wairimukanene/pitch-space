@@ -11,17 +11,17 @@
 
     {% endblock %}
 </head>
-<body>
             <!-- Navbar block  --> 
         {% block navbar %}
         {% include 'navbar.html' %}
         {% endblock %}  
 
         {% block content %}
+        <body style="background-color:black">
         <div class="container text-center">
             <img src="{{ url_for('static', filename='') }}" alt="">
             <div class="text-content">
-                <h1><span style="color:rgb(202, 77, 31);">When you find an idea that you </span>just can't stop thinking about, that's probably <span style="color:rgb(202, 77, 31);">a good one</span> to pursue <span> - Pitching.</span></h1>
+                <h1 style="color: black;"><span style="color:#b23ec2;">In life you only have 60 seconds to impress someone</span> <span>one minute can make you or break you</span> <span style="color:rgb(202, 31, 202);">Pitch</span>Something.</h1>
                 
                 <h2 style="color: rgb(202,77,31);">Wairimu</h2>
                 <br>
@@ -30,6 +30,7 @@
             </div>
             
         </div>
+        </body>
    
 
     {% endblock %}

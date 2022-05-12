@@ -24,6 +24,7 @@ def create_app(config_name):
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
     app.config['SECRET_KEY'] = '1234'
+    app.config.from_object(['MAIL_PASSWORD'])
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)

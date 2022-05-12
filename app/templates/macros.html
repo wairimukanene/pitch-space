@@ -10,10 +10,10 @@
                     {{category.title}} {{category.category}}
                 </div>
                 <div class="panel-body" style="background-color:#faf5f5;">
-                  <p style="color: white; font-size: 12px;">
+                  <p style="color: black; font-size: 12px;">
                     {{category.description}}
                   </p>
-                 <p style="color: white; font-size: 12px;">Posted by {{category.pitcher}}</p>
+                 <p style="color: black; font-size: 12px;">Posted by {{category.pitcher}}</p>
                  <a href="{{url_for('main.new_comment',pitch_id = category.id)}}" class="btn btn-info" style="background-color: rgb(184, 76, 37)!important;"> Add a comment</a>
                  <a href="{{url_for('main.upvote',pitch_id = category.id)}}" class= "btn btn-primary btn-sm" style="background-color: rgb(184, 76, 37)!important;">Upvote <span>{{category.upvotes.count()}}</span></a>
                  <a href="{{url_for('main.downvote',pitch_id = category.id)}}" class= "btn btn-danger btn-sm" style="background-color: rgb(184, 76, 37)!important;">Downvote <span>{{category.downvotes.count()}}</span></a>

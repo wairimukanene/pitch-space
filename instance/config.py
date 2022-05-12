@@ -1,0 +1,3 @@
+SECRET_KEY='37008163'
+MAIL_USERNAME='mercykanene@gmail.com'
+MAIL_PASSWORD='naivasha2020'

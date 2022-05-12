@@ -71,6 +71,8 @@ def update_pic(uname):
 
 @main.route('/categories')
 def categories():
+    
+    # downvotes = Downvote.get_all_downvotes(pitch_id=Pitch.id)
 
 
     title = 'Pitches | Categories'
@@ -80,8 +82,8 @@ def categories():
     sports = Pitch.query.filter_by(category = "sports")
     design = Pitch.query.filter_by(category = "design")
     upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
-    downvotes = Downvote.get_all_downvotes(pitch_id=pitch.id)
-    return render_template('categories.html',title =title, pitch = pitch, fashion=fashion, music=music, sports=sports, design=design, upvotes=upvotes,downvotes=downvotes )
+   
+    return render_template('categories.html',title =title, pitch = pitch, fashion=fashion, music=music, sports=sports, design=design, upvotes=upvotes)
 
 @main.route('/pitches/new/', methods = ['GET','POST'])
 
